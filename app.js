@@ -1,14 +1,19 @@
+require('dotenv').config()
 const express = require('express')
 const app = express();
+
+// Connect Database
+const connectDb = require('./config/MongoDb')
+connectDb()
 
 app.get('/', (req, res) => {
     res.json({ msg: 'Welcome to the ContactKeeper API...' })
 })
 
 // Define Routes
-// app.use('/api/users', require('./routes/users'));
-// app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/contacts', require('./routes/contacts'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/contacts', require('./routes/contacts'));
 
 const PORT = process.env.PORT || 5000;
 
