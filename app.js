@@ -2,12 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const app = express();
 const morgan = require('morgan')
+const cors = require('cors');
 
 // Connect Database
 const connectDb = require('./config/MongoDb')
 connectDb()
 
 // use middlewares
+app.use(cors());
 app.use(express.json({ extended: false }));
 app.use(morgan('combined'))
 
