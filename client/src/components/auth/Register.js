@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect, useContext } from "react";
 
 import AlertContext from "../../context/alert/alertContext";
-import AuthContext from '../../context/auth/authContext';
+import AuthContext from "../../context/auth/authContext";
 
-const Register = props => {
+const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
 
@@ -13,11 +12,11 @@ const Register = props => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/');
+      props.history.push("/");
     }
 
-    if (error === 'User already exists') {
-      setAlert(error, 'danger');
+    if (error === "User already exists") {
+      setAlert(error, "danger");
       clearErrors();
     }
   }, [error, isAuthenticated, props.history]);
@@ -57,7 +56,7 @@ const Register = props => {
           <input
             type="text"
             name="name"
-            placeholder='John Doe'
+            placeholder="John Doe"
             value={name}
             onChange={onChange}
             required
@@ -68,7 +67,7 @@ const Register = props => {
           <input
             type="email"
             name="email"
-            placeholder='example@mail.com'
+            placeholder="example@mail.com"
             value={email}
             onChange={onChange}
             required
