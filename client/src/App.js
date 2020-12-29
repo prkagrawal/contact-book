@@ -10,7 +10,13 @@ import Alerts from './components/layout/Alerts';
 import AuthState from './context/auth/AuthState';
 import ContactState from './context/contact/contactState';
 import AlertState from './context/alert/AlertState';
+import setAuthToken from './utils/setAuthToken';
 import './App.css'
+
+// if token found run setAuthToken function every time app loads
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
