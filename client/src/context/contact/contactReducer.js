@@ -29,7 +29,7 @@ export default (state, action) => {
       return {
         ...state,
         contacts: state.contacts.map((contact) => {
-          return contact.id === action.payload ? action.payload : contact;
+          return contact._id === action.payload ? action.payload : contact;
         }),
         loading: false,
       };
